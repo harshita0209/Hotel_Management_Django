@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand</title>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'user_transactions/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class = "nav">
+        <div class = "container">
+          <!-- User logged in using gmail -->
+          {% if user.is_authenticated %}
+            <h3 class = "heading"><a href="{% url 'home_view' %}">Hotel The Grand</a></h3>
+            <ul>
+                <li><a href = "{% url 'home_view' %}">Home</a></li>
+                <li><a href = "{% url 'about' %}">About</a></li>
+                <li><a href = "{%url 'booking' %}">Booking</a></li>
+                <li><a href = "{% url 'restaurant' %}">Restaurant</a></li>
+                <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                <li><a href = "{%url 'reviews' %}">Reviews</a></li>
+                <li><a href = "{%url 'event' %}">Events</a></li>
+                <li><a href = "{% url 'news' %}">News</a></li>
+                <li><a href = "{% url 'location' %}">Location</a></li>
+                <li style="color: brown;">Logged as {{ user.username }}</li>
+              </ul>
+             <!-- <ul><button id="button" onclick="myfunction()" type="submit">Register</button></ul> -->
+            
+            
+              
+              <!-- <p style="color: brown;">Logged as {{ user.username }}</p> -->
+              <a class="btn btn-primary" href="{% url 'home' %}" style="margin: 10px;">Logout</a>
+                {% else %}
+              <!-- First time coming on the page -->
+              <h3 class = "heading"><a href="index.html">Hotel The Grand</a></h3>
+              <ul>
+                  <li><a href = 'index.html'>Home</a></li>
+                  <li><a href = "{% url 'about' %}">About</a></li>
+                  <!-- <li><a href = 'booking.html'>Booking</a></li> -->
+                  <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                  <!-- <li><a href = 'contact.html'>Reviews</a></li> -->
+              </ul>
+                <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+                  Login using Gmail
+                </a>
+                <a class="btn btn-primary" href="{% url 'register' %}">
+                  Register
+                </a>
+              {% endif %}
+        </div>
+        
+    </nav>
+
+
+    <div class = "main-body1">
+        <div class = "contianer" >
+            <!-- <h1 id='text'>Welcome to <br> Hotel The Grand</h1> -->
+            <img src="{%static 'images/8.jpeg' %}" height="500px" width="1550px" alt="Welcome to Hotel The Grand">
+            <!-- <iframe width="898" height="506" src="https://www.youtube.com/embed/AoLiXe05-Z8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <div class="col-md-12" style="border-radius: 5px;background-color: rgb(219, 236, 209); padding: 50px;float: right;">
+                <h3 style="color: rgb(238, 131, 89);">EXPLORE DELHI</h3><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">AKSHARDHAM</h5>
+                          <p class="card-text">Swaminarayan Akshardham brilliantly showcases the essence of India’s ancient architecture, traditions and timeless spiritual messages. Replete with a traditional temple, exhibition halls, musical fountain, sixty acre lush Garden of India, and the Lotus Garden, the Akshardham experience is an enlightening journey through India’s glorious art, values and contributions for the progress, happiness and harmony of mankind. Heralded by the Guinness World Record as the World’s Largest Comprehensive Hindu Temple, the complex was inaugurated on 6 November, 2005.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">SAFDARJUNG TOMB</h5>
+                          <p class="card-text">Representing the last phase of the Mughal style of architecture, Safdarjang's Tomb stands in the centre of an extensive garden, laid down on the pattern of the Mughal Charbagh style. Built in 1754 by Shauja-ud-Daula, the Nawab of Awadh, to house the remains of his father Safdarjung, who was a powerful minister in the Mughal court during the reign of Muhammad Shah, the tomb is referred to as the “last flicker in the lamp of Mughal architecture.“ Built in red sandstone and buff stone, the monument shows how the grace and grandeur of the Mughals had been overtaken by decadence. The tomb also has a mosque.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">PARLIAMENT HOUSE</h5>
+                          <p class="card-text">A marvelous piece of architecture designed by the famed architect Lutyens and constructed under the direct supervision of Sir Herbert Baker, Parliament House is designed as a circular structure. The House is 171 meters in diameter and about one-third of a mile in circumference. The two semicircular house chambers flank the Central Hall with its impressive dome. The building has a continuous open corridor on the first floor fringed with a colonnade of 144 creamy sandstone pillars.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">GURUDWARA BANGLA SAHIB</h5>
+                          <p class="card-text">One of the most famous pilgrimage destinations of the Sikh religion, the Gurdwara Bangla Sahib is venerated by devotees who make a trip to this holy place in the capital of India. Located in the heart of New Delhi's Connaught Place area, the shrine was constructed at the site where Harkrishan Dev, the eighth Sikh guru, spent several months. An architectural beauty, the shrine has beautifully carved marble pillars, decorated floors and onion domes adorned with gold.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src = "{% static 'user_transactions/main.js' %}"></script>
+    
+    <footer>
+        <p>Created By Harshita | © 2021 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

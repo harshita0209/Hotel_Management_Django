@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand</title>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'user_transactions/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <nav class = "nav">
+        <div class = "container">
+          <!-- User logged in using gmail -->
+          {% if user.is_authenticated %}
+            <h3 class = "heading"><a href="{% url 'home_view' %}">Hotel The Grand</a></h3>
+            <ul>
+                <li><a href = "{% url 'home_view' %}">Home</a></li>
+                <li><a href = "{% url 'about' %}">About</a></li>
+                <li><a href = "{% url 'booking' %}">Booking</a></li>
+                <li><a href = "{% url 'restaurant' %}">Restaurant</a></li>
+                <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                <li><a href = "{%url 'reviews' %}">Reviews</a></li>
+                <li><a href = "{%url 'event' %}">Events</a></li>
+                <li><a href = "{% url 'news' %}">News</a></li>
+                <li><a href = "{% url 'location' %}">Location</a></li>
+                <li style="color: brown;">Logged as {{ user.username }}</li>
+              </ul>
+             <!-- <ul><button id="button" onclick="myfunction()" type="submit">Register</button></ul> -->
+            
+            
+              
+              <!-- <p style="color: brown;text-align:end;">Logged as {{ user.username }}</p> -->
+              <a class="btn btn-primary" href="{% url 'home' %}" style="margin: 10px;">Logout</a>
+                {% else %}
+              <!-- First time coming on the page -->
+              <h3 class = "heading"><a href="{% url 'home' %}">Hotel The Grand</a></h3>
+              <ul>
+                  <li><a href = "{% url 'home' %}">Home</a></li>
+                  <li><a href = "{% url 'about' %}">About</a></li>
+                  <!-- <li><a href = 'booking.html'>Booking</a></li> -->
+                  <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                  <!-- <li><a href = 'contact.html'>Reviews</a></li> -->
+              </ul>
+                <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}" style="margin: 10px;">
+                  Login using Gmail
+                </a>
+                <!-- <a class="btn btn-primary" href="{% url 'register' %}">
+                  Register
+                </a> -->
+              {% endif %}
+        </div>
+        
+    </nav>
+
+
+    <div class = "main-body">
+      <img src="{% static 'images/home1.jpg' %}" style="background-repeat: no-repeat;
+      background-size: cover;
+      height: 500px;
+      margin-top:0px;
+      padding-top:20px;
+      padding-bottom: 0px;
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      text-align: center;
+      color:white;" class="card-img-top" alt="...">
+    </div>
+    <br><br>
+    <div class="container">
+    <section class = "content">
+        <h5><strong>Hotel The Grand is designed for you</strong></h5>
+        <p> Enjoy a warm welcome with our inviting ambience and thoughtful touches designed to please. Let our attentive team take care of the small details that make a big difference to your stay in the most desirable of destinations, which combine convenience and individuality.</p>
+        <br><br>
+    </section>
+    </div>
+
+    
+
+    <div class="container">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Yes I can !
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord1.jpg' %}" ><title>Placeholder</title></img>
+
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Eat What You Want
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord2.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              More Than Just Wi-Fi
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord3.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingfour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+              Sleep Experience
+            </button>
+          </h2>
+          <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord4.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingfive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+              Super Breakfast
+            </button>
+          </h2>
+          <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord5.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingsix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+              Temptations
+            </button>
+          </h2>
+          <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord6.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingseven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
+              Wellbeing
+            </button>
+          </h2>
+          <div id="collapseseven" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/accord7.jpg' %}" ><title>Placeholder</title></img>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-6">
+      <div class="card" style="width: 40rem;">
+        <img src="{% static 'images/card4.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Stylish spaces</h5>
+          <p class="card-text">Style, form, beauty and function. That’s what you’ll find at The Grand. From the stunning Wine Tower in Stansted to the Dom Lounge at the The Grand Hotel, Berlin, our focus is all about enhancing the unique traveler-experience through elegant, sophisticated structures and spaces for business and leisure.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card" style="width: 40rem;">
+        <img src="{% static 'images/card5.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Inspirational lobbies and public spaces</h5>
+          <p class="card-text">Lobby and public space areas make the initial impression on The Grand guests and are about much more than check-in and check-out. We have enhanced all The Grand common areas to further uplift the overall guest experience. Every social space, meetings and events area, food and beverage venue and wellness space has been given the same level of attention that you’ll experience during your stay at any The Grand hotel.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+      
+    </div>
+    <script src = "{% static 'user_transactions/main.js' %}"></script>
+    <br><br>
+    <footer>
+        <p>Created By Harshita | © 2021 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

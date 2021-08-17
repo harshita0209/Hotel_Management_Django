@@ -1,0 +1,162 @@
+/* *{
+    margin: 0;
+} */
+
+
+
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color:black;
+    margin: 0;
+    margin-bottom: 500px;
+}
+
+
+.container{
+    max-width: 1000px;
+    /* margin:0px; */
+}
+
+.heading{
+    /* padding-left:10px; */
+    padding: 8px 10px;
+    
+}
+
+/* .heading a{background-color: red;
+text-decoration: none;
+text-transform:uppercase ;
+color: black;
+border-radius: 4px;} */
+.nav{
+    position: fixed;
+    background-color: rgb(21, 0, 0);
+    transition: all 0.3s ease;
+    width: 100%;
+    /* padding-bottom: 50px; */
+}
+
+.nav .container{
+    display: flex;
+    justify-content:space-between;
+}
+
+.nav ul{
+    padding-top:10px;
+    display: flex;
+    list-style: none;
+}
+
+.nav a{
+    text-decoration: none;
+    padding-right:20px;
+    color:white
+}
+
+
+nav.active{
+    background-color:white
+}
+
+nav.active a{
+    color:black
+}
+
+
+.main-body{
+    background-image: url(../images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    margin-top:0px;
+    padding-top:20px;
+    padding-bottom: 0px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    color:white;
+}
+
+.main-body h1{
+    align-items: center;
+}
+.nav{
+    z-index:1;
+    position: fixed;
+    background-color: rgb(21, 0, 0);
+    transition: all 0.3s ease;
+    width: 100%;
+    /* padding-bottom: 50px; */
+}
+
+.nav .container{
+    display: flex;
+    justify-content:space-between
+}
+
+.nav ul{
+    padding-top:10px;
+    display: flex;
+    list-style: none;
+}
+
+.nav a{
+    text-decoration: none;
+    padding-right:20px;
+    color:white
+}
+
+
+nav.active{
+    background-color:chocolate
+}
+
+nav.active a{
+    color:black
+}
+.container-form{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.form{
+    background-color:steelblue;
+    width: 500px;
+    border: chocolate;
+    color: black;
+    
+}
+
+.form input{
+    width: 492px;
+    height: 20px;
+    background-color: bisque;      
+}
+
+footer{
+    display:flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px
+}
+
+.carousel{
+    /* display: flex; */
+    /* justify-content: center; */
+    position: fixed;
+    margin-top: 20px;
+    padding: 10px 2px  ;
+}
+.side-detail{
+    margin-top: 50px;
+    padding-top: 10px;
+}
+.side-detail li{
+    list-style: none;
+    
+}

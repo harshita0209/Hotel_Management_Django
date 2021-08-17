@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel The Grand Billing Receipt</title>
+    {% load static %}
+    <style>
+        td {
+            text-align: center; 
+        }
+        h1{
+            color:chocolate;
+            text-align: center;
+            font-size:30px;
+        }
+        
+        tr{
+            background-color: rgb(192, 236, 236);
+           
+        }
+        footer{
+            text-align: center;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <br><br><br>
+    <h1>HOTEL THE GRAND</h1>
+    <h1>INVOICE</h1>
+        {% if detail %}
+        {% for detail in detail %}
+        <p><strong>BILLING ID </strong>{{detail.id}}</p>
+        <p><strong>BILLING TO </strong> {{detail.user}}</p>
+        <p><strong>EMAIL ID </strong> {{detail.email}}</p>
+        <hr>
+        
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Checkin Date</th>
+                    <th>Checkout Date</th>
+                    <th>No of Rooms</th>
+                    <th>Price per room</th>
+                    <th>Total stay(days)</th>
+                    <th>Total Amount</th>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{detail.user}}</td>
+                        <td>{{detail.date1}}</td>
+                        <td>{{detail.date2}}</td>
+                        <td>{{detail.no_rooms}}</td>
+                        <td>{{detail.price}}</td>
+                        <td>{{detail.days}}</td>
+                        <td>INR {{detail.total_price}}</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+            <hr>
+            <br><br>
+            {% endfor %}
+         {% endif %}
+          
+    <br><br><br><br><br><br>
+    <footer>
+        <p>Created By Harshita | © 2021 All Rights Reserved.</p>
+    </footer>
+    <!-- <script src="main.js"></script> -->
+    
+</body>
+</html>

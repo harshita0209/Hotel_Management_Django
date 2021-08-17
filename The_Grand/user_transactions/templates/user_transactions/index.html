@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand</title>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'user_transactions/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class = "nav">
+        <div class = "container">
+          <!-- User logged in using gmail -->
+          {% if user.is_authenticated %}
+            <h3 class = "heading"><a href="{% url 'home_view' %}">Hotel The Grand</a></h3>
+            <ul>
+                <li><a href = "{% url 'home_view' %}">Home</a></li>
+                <li><a href = "{% url 'about' %}">About</a></li> 
+                <li><a href = "{% url 'booking' %}">Booking</a></li>
+                <li><a href = "{% url 'restaurant' %}">Restaurant</a></li>
+                <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                <li><a href = "{%url 'reviews' %}">Reviews</a></li>
+                <li><a href = "{%url 'event' %}">Events</a></li>
+                <li><a href = "{% url 'news' %}">News</a></li>
+                <li><a href = "{% url 'location' %}">Location</a></li>
+                <li style="color: brown;">Logged as {{ user.username }}</li>
+              </ul>
+             <!-- <ul><button id="button" onclick="myfunction()" type="submit">Register</button></ul> -->
+            
+            
+              
+              <!-- <p style="color: brown;text-align:end;">Logged as {{ user.username }}</p> -->
+              <a class="btn btn-primary" href="{% url 'home' %}" style="margin: 10px;">Logout</a>
+                {% else %}
+              <!-- First time coming on the page -->
+              <h3 class = "heading"><a href="{% url 'home' %}">Hotel The Grand</a></h3>
+              <ul>
+                  <li><a href = "{% url 'home' %}">Home</a></li>
+                  <li><a href = "{% url 'about' %}">About</a></li>
+                  <!-- <li><a href = 'booking.html'>Booking</a></li> -->
+                  <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                  <!-- <li><a href = 'contact.html'>Reviews</a></li> -->
+              </ul>
+                <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}" style="margin: 10px;">
+                  Login using Gmail
+                </a>
+                <!-- <a class="btn btn-primary" href="{% url 'register' %}">
+                  Register
+                </a> -->
+              {% endif %}
+        </div>
+        
+    </nav>
+
+
+    <div class = "main-body">
+        <div class = "contianer">
+            <h1 id='text'>Welcome to <br> Hotel The Grand</h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="container">
+    <section class = "content">
+        <h5><strong>Summer Breaks !!!</strong></h5>
+        <p>Make Hotel The Grand as part of your getaway experience this Summer.
+            Choose this locations in Delhi and experience the best of it's inside and out.With outstanding value and perfect locations throughout the city, you can… </p>
+        <p>Squeeze in the big attractions, then stretch out in our heavenly signature beds. Explore Delhi's parks, charming streets and stunning coastlines. Savour the city’s cocktail of culture, then sip on our famous cocktails. </p>
+        <p>With so much to see and do there’s never been a better time to let Delhi surprise you! </p>
+        <h4 style="text-align: center; color: chocolate;transition: ease;">City’s attractions</h4>
+    </section>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/card1.jpg' %}" ><title>Placeholder</title></img>
+
+            <div class="card-body">
+              <p class="card-text">The Red Fort is a historic fort in the city of Delhi in India that served as the main residence of the Mughal Emperors. Emperor Shah Jahan commissioned construction of the Red Fort on 12 May 1638.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank">Detail</a></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.google.com/search?q=red+fort+images&sxsrf=ALeKk00yr5TUzqRlV-cfs4KOtKdmEpwSew:1624641734425&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjwtN6LprPxAhVTSsAKHR6wC5gQ_AUoAXoECAEQBA&biw=1536&bih=696" target="_blank">Images</a></button>
+                </div>
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/card2.jpg' %}"><title>Placeholder</title></img>
+
+            <div class="card-body">
+              <p class="card-text">The Qutb Minar, also spelled as Qutub Minar and Qutab Minar, is a minaret and "victory tower" that forms part of the Qutb complex. It is a UNESCO World Heritage Site in the Mehrauli area of New Delhi, India.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://en.wikipedia.org/wiki/Qutb_Minar" target="_blank">Detail</a></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.google.com/search?q=qutub+minar&tbm=isch&ved=2ahUKEwjNpreNprPxAhWBq3EKHajuCf0Q2-cCegQIABAA&oq=qut&gs_lcp=CgNpbWcQARgAMgQIABBDMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAOgUIABCxAzoHCAAQsQMQQ1C13x1YoOQdYLbwHWgAcAB4AIABZogBpAKSAQMxLjKYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=yRDWYI2eO4HXxgOo3afoDw&bih=696&biw=1536" target="_blank">Images</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/card3.jpg' %}"><title>Placeholder</title></img>
+
+            <div class="card-body">
+              <p class="card-text">The India Gate (formerly known as the All India War Memorial) is a war memorial located astride the Rajpath, on the eastern edge of the "ceremonial axis" of New Delhi,[1] formerly called Kingsway.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://en.wikipedia.org/wiki/India_Gate" target="_blank">Detail</a></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.google.com/search?q=india+gate&tbm=isch&ved=2ahUKEwi2_db3p7PxAhUEYBUIHf0QB9sQ2-cCegQIABAA&oq=India&gs_lcp=CgNpbWcQARgAMgQIABBDMgcIABCxAxBDMgcIABCxAxBDMgQIABBDMgQIABBDMgQIABBDMgQIABBDMgQIABBDMgQIABBDMgcIABCxAxBDOgQIIxAnOgUIABCxAzoICAAQsQMQgwFQ-KsCWIezAmClvAJoAHAAeACAAXOIAYMEkgEDMy4ymAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=tRLWYPbODYTA1fAP_aGc2A0&bih=696&biw=1536" target="_blank">Images</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <script src = "{% static 'user_transactions/main.js' %}"></script>
+    
+    <footer>
+        <p>Created By Harshita | © 2021 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

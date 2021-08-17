@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirm</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_transactions/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    </head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <nav class = "nav">
+        <div class = "container">
+          <!-- User logged in using gmail -->
+          {% if user.is_authenticated %}
+            <h3 class = "heading"><a href="{% url 'home_view' %}">Hotel The Grand</a></h3>
+            <ul>
+                <li><a href = "{% url 'home_view' %}">Home</a></li>
+                <li><a href = "{% url 'about' %}">About</a></li>
+                <li><a href = "{%url 'booking' %}">Booking</a></li>
+                <li><a href = "{% url 'restaurant' %}">Restaurant</a></li>
+                <li><a href = "{%url 'contact' %}">Contact Us</a></li>
+                <li><a href = "{%url 'reviews' %}">Reviews</a></li>
+                <li><a href = "{%url 'event' %}">Events</a></li>
+                <li><a href = "{% url 'news' %}"a>News</a></li>
+                <li><a href = "{% url 'location' %}">Location</a></li>
+                <li style="color: brown;">Logged as {{ user.username }}</li>
+              </ul>
+             <!-- <ul><button id="button" onclick="myfunction()" type="submit">Register</button></ul> -->
+            <!-- <p style="color: brown;">Logged as {{ user.username }}</p> -->
+            <a class="btn btn-primary" href="{% url 'home' %}" style="margin: 10px;">Logout</a>
+        {% endif %}   
+        </div>
+        
+    </nav>
+
+    <br><br><br>
+    
+    
+    <div class="container">
+        <form name="myForm" method="POST" >
+            {% csrf_token %}
+                {% if detail %}
+                {% for detail in detail %}
+                <br>
+                <h3 style="color: darkblue; font-style: italic; text-transform: uppercase;" name='user'>Booking Details of {{user.first_name}} {{user.last_name}}</h3>
+                <br>
+                <input type="text" name='user' hidden class="form-control" value="{{ user.username }}"  id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Booking ID</label>
+                <input type="email" readonly name='booking' id="booking_id" class="form-control" value="{{ detail.id }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" readonly name='email1' class="form-control" value="{{ user.email }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Checkin Date*</label>
+                <input type="email" readonly name='date1' class="form-control" value="{{detail.date1}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Checkout Date*</label>
+                <input type="email" readonly name='date2' class="form-control" value="{{detail.date2}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Price per room</label>
+                <input type="email" readonly name='price' class="form-control" value="{{ detail.price }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                <label for="exampleInputEmail1" class="form-label">No. of Rooms</label>
+                <input type="email" readonly name='no_rooms' class="form-control" value="{{detail.no_rooms}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Days</label>
+                <input type="email" readonly name='days' class="form-control" value="{{ detail.days }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Total Bill  </label>
+                <input type="email" readonly name='total_price' class="form-control" value="{{ detail.total_price }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                </div>
+                <button type="submit" style="background-color: red;" id="cancel" class="btn btn-primary">Cancel Booking</button>
+                <a type="submit" href="{% url 'pdf' %}" style="background-color: red;" id="cancel" class="btn btn-primary">Download Receipt</a>
+                <br><br>
+                <hr style="color: red; height: 3px;"> 
+                {% endfor %}
+                {% else %}
+                <div><h4>No booking details as of now for {{user.first_name}} {{user.last_name}}!!</h4></div>
+                <a href="{% url 'booking_detail' %}"> Book Now</a>
+                {% endif %}
+            </form>
+        </div>
+    
+    <br><br><br><br><br><br>
+    <!-- <footer>
+        <p>Created By Harshita | © 2021 All Rights Reserved.</p>
+    </footer> -->
+    <script src = "{% static 'user_transactions/book.js' %}"></script>
+    
+</body>
+</html>
